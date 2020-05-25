@@ -81,7 +81,6 @@ def sortedCandidates():
     li.sort(key = sortHelper, reverse= True)
     dic[cate] = li
   return dic
-sortedCandidates()
 
 # check if venture name is empty or does not exist
 def deleteCandidate(ventureName):# deletes all by that venture name
@@ -98,7 +97,7 @@ def deleteCandidate(ventureName):# deletes all by that venture name
 # deletes all candidates in the DB
 def deleteAllCandidates():
   cur.execute("DELETE FROM candidates")
-  conn.commit
+  conn.commit()
   return "Deleted all candidates"
 
 # clear votes for all candidates
@@ -138,22 +137,21 @@ def vote(dict):
       listOfCandidates = list(cur.execute("SELECT votes FROM candidates WHERE venture = ?",(escapedVenture,)))
       votesPlus1 = listOfCandidates[0][0] + 1
       cur.execute("UPDATE candidates SET votes = ? WHERE venture = ?",(votesPlus1,escapedVenture))
-      conn.commit()
+    conn.commit()
     return "voted"
   return "Something went wrong while voting"
 
 
 # vote codes page
-# makes random strings       check this fn for second commit
+# makes random strings
 def makeVoteCodes(numSt):
   num = int(html.escape(numSt))
   for i in range(num):
     cur.execute("INSERT INTO voteCodes VALUES (?)",(help.randomCode(4,2),))
-    conn.commit
   conn.commit()
   return " vote codes added : " + str(num)
 
-# selects and sends all votecodes in DB in a list
+# selects and sends all vote codes in DB in a list
 def allVoteCodes():
   retLi = []
   for can in cur.execute("SELECT * FROM voteCodes"):
@@ -172,13 +170,13 @@ def deleteVoteCode(code):
   if len(li) < 1:
     return "the entered code does not exist"
   cur.execute("DELETE FROM voteCodes where code = ?",(escapedCode,))
-  conn.commit
+  conn.commit()
   return "deleted " + escapedCode
 
 # delete all the vote codes
 def deleteAllVoteCodes():
   cur.execute("DELETE FROM voteCodes")
-  conn.commit
+  conn.commit()
   return "all codes deleted"
 
 

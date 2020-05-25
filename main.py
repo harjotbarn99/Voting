@@ -47,7 +47,6 @@ def get_username():
 
 
 #  requestes for communication ( admin )
-
 # login handled here - use db to confirm user and set cookie
 @bottle.post("/login")
 def loginAttempt():
