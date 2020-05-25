@@ -41,7 +41,7 @@ def authenticate(dic):
     resp = {"authenticated":False,"message":" password incorrect"}
     return resp
 
-# registers login attempts uncomment line 32 to use this function
+# registers login attempts uncomment line 33 to use this function
 def login_atmpt(user):
   ipAddress = bottle.request.environ.get('REMOTE_ADDR')
   today = date.today()
