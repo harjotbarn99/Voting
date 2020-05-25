@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hnadle voting</title>
+    <script src="communication.js"></script>
+    <script src="controlVotersJS.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/node-forge@0.7.0/dist/forge.min.js"></script>
+</head>
+<body onload="getKey();">
+<div id="message1" style="font-size:300%;"></div><br><br>
+<div id="message" style="font-size:300%;"></div><br><br><br>
+
+<button onclick="controlCandidates()">go to candidates page</button>
+<br><br><br>
+
+<div id="config">
+    number of voters : <input type="text" id="numberOfVoteCodes">
+    <button onclick="makeVoteCodes()">Make vote codes</button>
+    <br><br><br>
+    <button onclick="deleteAllVoteCodes()">delete all vote codes</button>
+    <br><br><br>
+    vote code to delete : <input type="text" id="voteCodeToDelete">
+    <button onclick="deleteVoteCode()">delete vote code</button>
+
+</div>
+<br><br><br>
+
+<div id="voteCodes" onload="getVoteCodes()">
+
+</div>
+<script>
+    window.onload = function exampleFunction() {
+        getKey();
+        di();
+        getVoteCodes();
+        console.log('The Script will load now.');
+    }
+</script>
+
+</body>
+</html>

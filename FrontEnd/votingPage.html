@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voting page</title>
+    <script src="communication.js"></script>
+    <script src="votingPageJS.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/node-forge@0.7.0/dist/forge.min.js"></script>
+</head>
+<body onload="getKey();">
+
+<div id="message" style="font-size:300%;"></div><br><br><br>
+<div id="votingStatus" style="font-size:300%;"></div><br><br>
+
+<div id="avalibleCandidates">
+
+</div>
+
+Please enter the  vote code : <input type="text" id="voteCode">
+<button onclick="vote()">Vote</button>
+<script>
+    window.onload = function exampleFunction() {
+            getKey();
+            getCandidatesForVoting();
+            votingStatus()
+            console.log('The Script will load now.');
+        }
+</script>
+</body>
+</html>

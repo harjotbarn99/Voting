@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidates</title>
+    <script src="communication.js"></script>
+    <script src="controlCandidatesJS.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/node-forge@0.7.0/dist/forge.min.js"></script>
+</head>
+<body onload="getKey();">
+<div id="message1"  style="font-size:300%;" ></div><br><br><br>
+<div id="message" style="font-size:300%;"></div><br><br><br>
+
+<button onclick="controlVoters()">go to voters page</button>
+
+<br><br><br>
+<div id="votingStatus"> </div>
+<br><br>
+<button onclick="changeVotingStatus()">Change voting status </button>
+<br><br>
+
+<div id="addCandidates" on>
+    category :  <input type="radio" name="candidateCategory" id="Social" value="Social"> Social
+    <input type="radio" name="candidateCategory" id="General" value="General"> General
+    <input type="radio" name="candidateCategory" id="Technology" value="Technology"> Technology<br>
+    venture : <input type="text" id="candidateVenture"> <br>
+    name : <input type="text" id="candidateName">  <br>
+    Venture Details : <input type="text" id="candidateVentureDetails"> <br>
+    <button id="registerCandidate" onclick="candidateRegister()" > Register Candidate</button><br><br><br>
+
+    <button id="getSortedCandidate" onclick="getSortedCandidates()" > Get results </button>
+</div>
+<br><hr>
+
+<div id="candidates"></div>
+<br><hr>
+<div id="sortedCandidates"></div>
+<br><br>
+<div id="deleteCandidates" >
+    name of Venture : <input type="text" id="deleteName"> <br>
+    <button onclick="deleteCandidates()" > Delete Candidate</button>
+    <br><br><br>
+    <button onclick="votesZero()">Set Votes to Zero</button>
+    <br><br><br>
+    <button onclick="deleteAllCandidates()"> Delete all candidates </button>
+</div>
+
+
+<script>
+    window.onload = function exampleFunction() {
+        getKey();
+        di();
+        getCandidates();
+        votingStatus();
+        console.log('The Script will load now.');
+    }
+</script>
+
+</body>
+</html>
