@@ -5,9 +5,10 @@ from datetime import datetime
 import html
 import bottle
 
-
+# code used for signing up
 codeOrg = "999"
 
+# registers a user
 def add_user(dic):
   for i in dic.values():
     if i =="":
@@ -22,14 +23,14 @@ def add_user(dic):
   db.add_creds(username,password)
   return username + " registered"
   
-
+# authenticate user
 def authenticate(dic):
   resp = {"authenticated":False,"message":"Username and Password can not be left empty"}
   username = html.escape(dic["username"])
   password = html.escape(dic["password"])
   if username == "" or password =="":
     return resp
-  result = login_atmpt(username)
+  #login_atmpt(username)
   if not db.check_username(username):
     resp["message"]= "username \""+username+"\" does not exist"
     return resp
@@ -40,7 +41,7 @@ def authenticate(dic):
     resp = {"authenticated":False,"message":" password incorrect"}
     return resp
 
-
+# registers login attempts uncomment line 32 to use this function
 def login_atmpt(user):
   ipAddress = bottle.request.environ.get('REMOTE_ADDR')
   today = date.today()
