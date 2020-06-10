@@ -9,7 +9,7 @@ from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 from base64 import b64decode, b64encode
 
-# reads a pem file and gives a cipher for encription, decription and signing.
+# reads a pem file and gives a cipher for encryption, decryption and signing.
 def get_cypher(key_filename):
     with open(key_filename) as f:
         data = f.read()
@@ -220,23 +220,23 @@ def vote():
 
 @bottle.route("/")
 def login_page():
-    return bottle.static_file("frontend/adminLogin.html", root=".")
+    return bottle.static_file("FrontEnd/adminLogin.html", root=".")
 
 @bottle.route("/adminLoginJs.js")
 def login_page():
-    return bottle.static_file("frontend/adminLoginJs.js", root=".")
+    return bottle.static_file("FrontEnd/adminLoginJs.js", root=".")
 
 @bottle.route("/communication.js")
 def login_page():
-    return bottle.static_file("frontend/communication.js", root=".")
+    return bottle.static_file("FrontEnd/communication.js", root=".")
 
 @bottle.route("/votingPage.html")
 def login_page():
-    return bottle.static_file("frontend/votingPage.html", root=".")
+    return bottle.static_file("FrontEnd/votingPage.html", root=".")
 
 @bottle.route("/votingPageJS.js")
 def login_page():
-    return bottle.static_file("frontend/votingPageJS.js", root=".")
+    return bottle.static_file("FrontEnd/votingPageJS.js", root=".")
 
 # send any static file requested but after authentication
 @bottle.route("/<filename>")
@@ -244,7 +244,7 @@ def dashboard_page(filename):
     username = get_username()
     retval = db.check_username(username)
     if username and retval:
-        return bottle.static_file("frontend/"+filename, root=".")
+        return bottle.static_file("FrontEnd/"+filename, root=".")
     return None
 
 
