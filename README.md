@@ -1,6 +1,8 @@
 # Voting
 voting app for Get Seeded
 
+#### This is not the original getseeded app (the original is private), I made this app in the starting of my summer vacation after my freshman year but later i learned Django during that summer and made a new app bith better backen and frontend
+
 
 Admin - 
   add participants or delete them
